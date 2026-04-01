@@ -3,6 +3,64 @@ site_url: https://cpzhang9487.github.io/cpznotes
 
 theme:
   name: material
+  language: zh-TW
+
+  palette:
+
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+
+  features:
+    - navigation.expand
+    - navigation.indexes
+    - navigation.instant
+    - navigation.instant.prefetch
+    - navigation.instant.preview
+    - navigation.instant.progress
+    - navigation.path
+    - navigation.prune
+    - navigation.sections
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.top
+    - navigation.tracking
+    - search.highlight
+    - search.share
+    - search.suggest
+    - toc.integrate
+    - toc.follow
+
+plugins:
+  - search:
+      lang:
+        - en
+        - ja  # 不知道為甚麼，jieba 要加上日語搜索才更好支持中文搜索
+        - zh
+      pipeline:
+        # - stemmer  # 這不要加比較好
+        - stopWordFilter
+        - trimmer
+      separator: '[\s\-,:!=\[\]()"/]+|(?!\b)(?=[A-Z][a-z])|\.(?!\d)|&[lg]t;'
+
+nav:
+  - 首頁:
+    - index.md
+  - Material for MkDocs:
+    - mkdocs-material/index.md
+    - mkdocs-material/darkmode-support.md
+    - mkdocs-material/navigation.md
+    - mkdocs-material/search-zh-support.md
 
 markdown_extensions:
 
